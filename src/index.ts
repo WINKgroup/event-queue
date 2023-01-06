@@ -1,4 +1,5 @@
-import { collapse, randomId } from '@winkgroup/misc'
+import { v4 as uuid } from 'uuid'
+import { collapse } from '@winkgroup/misc'
 import ConsoleLog from '@winkgroup/console-log'
 import _ from 'lodash'
 
@@ -12,7 +13,7 @@ export default class EventQueue {
     consoleLog = new ConsoleLog({ prefix: 'EventQueue' })
 
     add(listener:Function) {
-        const id = randomId()
+        const id = uuid()
         this.list.push({
             id: id,
             func: listener

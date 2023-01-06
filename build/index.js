@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var uuid_1 = require("uuid");
 var misc_1 = require("@winkgroup/misc");
 var console_log_1 = __importDefault(require("@winkgroup/console-log"));
 var lodash_1 = __importDefault(require("lodash"));
@@ -12,7 +13,7 @@ var EventQueue = /** @class */ (function () {
         this.consoleLog = new console_log_1.default({ prefix: 'EventQueue' });
     }
     EventQueue.prototype.add = function (listener) {
-        var id = (0, misc_1.randomId)();
+        var id = (0, uuid_1.v4)();
         this.list.push({
             id: id,
             func: listener
