@@ -2,16 +2,18 @@
   "name": "@winkgroup/event-queue",
   "version": "1.0.1",
   "description": "",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "build/**/*"
+    "dist/**/*"
   ],
   "scripts": {
-    "test": "npx jest",
-    "clean": "rm -rf build",
-    "build": "npm run clean && npx tsc",
-    "playground": "npx ts-node-dev src/test.ts"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "playground": "ts-node-dev src/test.ts",
+    "format": "prettier --write 'src/**/*.ts'",
+    "prepare": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -25,8 +27,8 @@
   },
   "homepage": "https://github.com/WINKgroup/event-queue#readme",
   "dependencies": {
-    "@winkgroup/console-log": "^1.0.9",
-    "@winkgroup/misc": "^1.6.2",
+    "@winkgroup/console-log": "^2.0.1",
+    "@winkgroup/misc": "^2.0.0",
     "lodash": "^4.17.21",
     "uuid": "^9.0.0"
   },
@@ -34,6 +36,7 @@
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.18",
     "@types/uuid": "^9.0.0",
+    "prettier": "^2.8.2",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   }
